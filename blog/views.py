@@ -30,7 +30,7 @@ def post_list(request, tag_slug=None):
         post_list = post_list.filter(tags__in=[tag])  # many-to-many relationship
 
     # Pagination with 3 posts per page
-    paginator = Paginator(post_list, 5)
+    paginator = Paginator(post_list, 3)
     page_numer = request.GET.get('page', 1)
     try:
         posts = paginator.page(page_numer)
@@ -74,7 +74,7 @@ def post_detail(request, year, month, day, post):
                   {'post': post,
                    'comments': comments,
                    'form': form,
-                   'similar_posts': similar_posts })
+                   'similar_posts': similar_posts})
 
 
 def post_share(request, post_id):

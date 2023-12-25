@@ -21,7 +21,7 @@ boxHtml = '<div id="bookmarklet">' +
 body.innerHTML += boxHtml;
 
 function bookmarkletLaunch() {
-    bookmarklet = document.getElementById('bookmarklet');
+    let bookmarklet = document.getElementById('bookmarklet');
     let imagesFound = bookmarklet.querySelector('.images');
 
     // clear images found
@@ -36,9 +36,15 @@ function bookmarkletLaunch() {
         });
 
     // find images in the DOM with the minimum dimensions
-    images = document.querySelectorAll('img[src$=".jpg"], img[src$=".jpeg"], img[src$=".png"]');
-
+    let images = document.querySelectorAll('img[src$=".jpg"], img[src$=".jpeg"], img[src$=".png"]');
+    images.forEach(image => {
+        if(image.naturalWidth >= minWidth && image.naturalHeight >= minHeight) {
+            let imageFound = document.createElement('img');
+            imageFound.src = image.src;
+            imagesFound.append(imageFound);
+        }
+    });
 }
 
-// launch the bookmarklet
+// launch the bookmarklet in the first call (bookmarklet = false)
 bookmarkletLaunch();

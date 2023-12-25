@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Pipenv (bookmark)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Pipenv (bookmark)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Pipenv (django-learning)" project-jdk-type="Python SDK" />
 </project>

@@ -22,17 +22,22 @@ class Cart:
         :param override_quantity:
         :return:
         """
+        # Convert the product ID into a string because Django uses JSON to serialize session data,
+        # and JSON only allows string key names
         product_id = str(product.id)
+
         if product_id not in self.cart:
+            # cart detail is saved as a dictionary
             self.cart[product_id] = {
                 'quantity': 0,
                 'price': str(product.price)
             }
-            if override_quantity:
-                self.cart[product_id]['quantity'] = quantity
-            else:
-                self.cart[product_id]['quantity'] += quantity
-            self.save()
+
+        if override_quantity:
+            self.cart[product_id]['quantity'] = quantity
+        else:
+            self.cart[product_id]['quantity'] += quantity
+        self.save()
 
     def save(self):
         # mark the session as "modified" to make sure it gets saved
@@ -64,3 +69,18 @@ class Cart:
             item['price'] = Decimal(item['price'])
             item['total_price'] = item['price'] * item['quantity']
             yield item
+
+    def __len__(self):
+        """
+        Count all items in the cart
+        :return:
+        """
+        return sum(item['quantity'] for item in self.cart.values())
+
+    def get_total_price(self):
+        return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
+
+    def clear(self):
+        # remove cart from session
+        del self.session[settings.CART_SESSION_ID]
+        self.save()

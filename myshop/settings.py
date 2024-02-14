@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop.apps.ShopConfig',
     "cart.apps.CartConfig",
-    "orders.apps.OrdersConfig"
+    "orders.apps.OrdersConfig",
+    'payment.apps.PaymentConfig',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,10 @@ CART_SESSION_ID = 'cart'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+# Stripe settings
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51Oj1c3LpjqTooaXKNOodJxm8RGzWmJ7qVKzBucytgvtSrmmhdY4KkRbflfqONwoudR6iVGacdxlaMn5PKTvEkqyl00SSXreOez'
+STRIPE_SECRET_KEY = 'sk_test_51Oj1c3LpjqTooaXKtWQuYCzefH0DuryCQj4sEYtTTYDTnWz3YCYd5bcS8aPlH3XpRfhCNiWt0JecOw3RagotbXto00TF5BCgwu'
+STRIPE_API_VERSION = '2022-08-01'
+STRIPE_WEBHOOK_SECRET = 'whsec_69757f43d9f6786736ee72bdd27cfa8484262e2942372e6c6aa7ad5476827a03'

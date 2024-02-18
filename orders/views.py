@@ -36,3 +36,13 @@ def order_create(request):
     return render(request,
                   'orders/order/create.html',
                   {'cart': cart, 'form': form})
+
+
+# The @staff_member_required checks that both the active and is_staff fields of the user
+# requesting the page are set to True
+@staff_member_required
+def admin_order_detail(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+    return render(request,
+                  'admin/orders/order/detail.html',
+                  {'order': order})

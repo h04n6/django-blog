@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "orders.apps.OrdersConfig",
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
+    'rosetta',
 ]
 
 # The order of middleware classes is very important because each middleware can depend
@@ -118,7 +119,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # in all the languages that Django is translated into
 LANGUAGES = [
     ('en', _('English')),
-    ('es', _('Spanish'))
+    ('es', _('Spanish')),
+    ('vi', _('Vietnamese')),
 ]
 
 # LANGUAGE_CODE = 'en-us'
@@ -156,6 +158,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 REDIS_DB = 1
+
+ROSETTA_STORAGE_CLASS = 'rosetta.storage.CacheRosettaStorage'
 
 
 # Stripe settings

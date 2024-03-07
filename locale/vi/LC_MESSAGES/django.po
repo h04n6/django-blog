@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: .\cart\forms.py:11
 msgid "Quantity"
@@ -1537,15 +1537,15 @@ msgstr ""
 
 #: .\myshop\settings.py:120
 msgid "English"
-msgstr ""
+msgstr "Tiếng Anh"
 
 #: .\myshop\settings.py:121
 msgid "Spanish"
-msgstr ""
+msgstr "Tiếng Tây Ban Nha"
 
 #: .\myshop\settings.py:122
 msgid "Vietnamese"
-msgstr ""
+msgstr "Tiếng Việt"
 
 #: .\templates\orders\order\create.html:5
 #: .\templates\orders\order\create.html:9
@@ -1575,7 +1575,6 @@ msgid_plural ""
 "                        %(items)s items, $%(total_price)s\n"
 "                    "
 msgstr[0] ""
-msgstr[1] ""
 
 #: .\templates\shop\base.html:34
 msgid "Your cart is empty."

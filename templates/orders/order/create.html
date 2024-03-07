@@ -1,13 +1,14 @@
 {% extends 'shop/base.html' %}
+{% load i18n %}
 
 {% block title %}
-	Checkout
+	{% translate 'Checkout' %}
 {% endblock %}
 
 {% block content %}
-	<h1>Content</h1>
+	<h1>{% translate 'Checkout' %}</h1>
     <div class="order-info">
-    <h3>Your order</h3>
+    <h3>{% translate 'Your order' %}</h3>
         <ul>
             {% for item in cart %}
                 <li>
